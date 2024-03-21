@@ -1,0 +1,33 @@
+name: Deploy to ECS
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment Environment'
+        required: true
+        type: choice
+        default: 'sandbox'
+        options:
+          - sandbox
+          - production
+      deploy-service:
+        description: 'Specify service to deploy (both, web or sidekiq)'
+        required: false
+        type: choice
+        default: 'both'
+        options:
+          - both
+          - web
+          - sidekiq
+
+jobs:
+  deploy-web:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Deploy web'
+      if: inputs.deploy-service == 'web' || inputs.deploy-service == 'both'
+      run: echo 'deploy web'
+    - name: 'Deploy sidekiq'
+      if: inputs.deploy-service == 'sidekiq' || inputs.deploy-service == 'both'
+      run: echo 'deploy sidekiq'
