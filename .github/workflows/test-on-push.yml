@@ -19,6 +19,8 @@ jobs:
         run: echo 'vars.GHCR_REGISTRY=${{ vars.GHCR_REGISTRY }}'
       - name: Secrets
         run: echo 'secrets.GH_TOKEN=${{ secrets.GH_TOKEN }}'
+      - name: Invalid Secrets
+        run: echo 'secrets.INVALID_TOKEN=${{ secrets.INVALID_TOKEN }}'
   sandbox:
     runs-on: ubuntu-latest
     environment: sandbox
@@ -28,4 +30,4 @@ jobs:
       - name: Vars
         run: echo 'vars.GHCR_REGISTRY=${{ vars.GHCR_REGISTRY }}'
       - name: Secrets
-        run: echo 'secrets.GH_TOKEN=${{ secrets.GH_TOKEN }}'
+        run: echo 'secrets.INVALID_TOKEN=${{ secrets.INVALID_TOKEN }}'
