@@ -8,6 +8,7 @@ on:
 jobs:
   test_env:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Env
         run: echo 'env=${{ env }}'
