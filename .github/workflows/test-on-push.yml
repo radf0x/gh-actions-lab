@@ -6,15 +6,19 @@ on:
       - main
 
 jobs:
-  test_env:
+  prod:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Env
-        run: echo 'env=${{ env }}'
+      - name: Env GHCR_REGISTRY
+        run: echo 'env.GHCR_REGISTRY=${{ env.GHCR_REGISTRY }}'
       - name: Vars
-        run: echo 'vars=${{ vars }}'
-      - name: GH Repo
-        run: echo 'repo=${{ github.repository }}'
-      - name: gh actor
-        run: echo 'actor=${{ github.actor }}'
+        run: echo 'vars.GHCR_REGISTRY=${{ vars.GHCR_REGISTRY }}'
+  sandbox:
+    runs-on: ubuntu-latest
+    environment: sandbox
+    steps:
+      - name: Env GHCR_REGISTRY
+        run: echo 'env.GHCR_REGISTRY=${{ env.GHCR_REGISTRY }}'
+      - name: Vars
+        run: echo 'vars.GHCR_REGISTRY=${{ vars.GHCR_REGISTRY }}'
