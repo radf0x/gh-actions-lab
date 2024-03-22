@@ -9,5 +9,11 @@ jobs:
   test_env:
     runs-on: ubuntu-latest
     steps:
-      - name: Test ENV
-        run: echo ' vars=${{ vars}} '
+      - name: Env
+        run: echo 'env=${{ env }}'
+      - name: Vars
+        run: echo 'vars=${{ vars }}'
+      - name: GH Repo
+        run: echo 'repo=${{ github.repository }}'
+      - name: gh actor
+        run: echo 'actor=${{ github.actor }}'
