@@ -1,0 +1,13 @@
+name: Deploy to ECS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test ENV
+        run: echo ${{ vars.ENVIRONMENT }}
