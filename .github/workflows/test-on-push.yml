@@ -1,4 +1,4 @@
-name: Deploy to ECS
+name: Test on push
 
 on:
   push:
@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test ENV
-        run: echo ' vars.ENVIRONMENT=${{ vars.ENVIRONMENT }} '
+        run: echo ' vars=${{ vars}} '
