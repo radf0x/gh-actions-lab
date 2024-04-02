@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Secret
+        run: echo 'SOME_SECRET=${{ secrets.SOME_SECRET }}'
       - name: Env GHCR_REGISTRY
         run: echo 'env.GHCR_REGISTRY=${{ env.GHCR_REGISTRY }}'
       - name: Vars
